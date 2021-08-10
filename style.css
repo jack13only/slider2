@@ -44,10 +44,6 @@ button {
     overflow: hidden;
 }
 
-button:hover {
-    background: rgba(128, 128, 128, 0.332);
-}
-
 .one {
     background: greenyellow;
 }
@@ -87,8 +83,15 @@ button:hover {
 }
 
 .dots:hover {
+    cursor: pointer;
     background: rgba(128, 128, 128, 0.584);
     transition: 0.3s linear
+}
+
+
+button:hover {
+    cursor: pointer;
+    background: rgba(128, 128, 128, 0.332);
 }
 
 .dots {

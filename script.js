@@ -45,16 +45,13 @@ const prevSlide = () => {
     }
 }
 
-next.addEventListener('click', () => {
-    nextSlide()
-})
-
-prev.addEventListener('click', () => {
-    prevSlide()
-})
+next.addEventListener('click', nextSlide)
+prev.addEventListener('click', prevSlide)
 
 for (let i = 0; i < dots.length; i++) {
     dots[i].addEventListener('click', () => {
         changeSlide(i)
     })
 }
+
+setInterval(nextSlide, 2500)
