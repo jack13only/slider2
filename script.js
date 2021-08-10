@@ -2,9 +2,9 @@ const next = document.querySelector('.btn-up')
 const prev = document.querySelector('.btn-down')
 const slides = document.querySelectorAll('.slide')
 const dots = document.querySelectorAll('.dots')
-
-
 let index = 0;
+
+
 
 const activeSlide = n => {
     for (slide of slides) {
@@ -23,6 +23,7 @@ const activeDot = n => {
 const changeSlide = (x) => {
     activeSlide(x)
     activeDot(x)
+    clearTimeout(timerId)
 }
 
 const nextSlide = () => {
@@ -38,10 +39,10 @@ const nextSlide = () => {
 const prevSlide = () => {
     if (index === 0) {
         index = slides.length - 1;
-        activeSlide(index)
+        changeSlide(index)
     } else {
         index--;
-        activeSlide(index)
+        changeSlide(index)
     }
 }
 
@@ -54,4 +55,4 @@ for (let i = 0; i < dots.length; i++) {
     })
 }
 
-setInterval(nextSlide, 2500)
+let timerId = setInterval(nextSlide, 2000)
