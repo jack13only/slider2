@@ -23,7 +23,6 @@ const activeDot = n => {
 const changeSlide = (x) => {
     activeSlide(x)
     activeDot(x)
-    clearTimeout(timerId)
 }
 
 const nextSlide = () => {
@@ -46,12 +45,22 @@ const prevSlide = () => {
     }
 }
 
-next.addEventListener('click', nextSlide)
-prev.addEventListener('click', prevSlide)
+next.addEventListener('click', () => {
+    nextSlide()
+    clearTimeout(timerId)
+    }
+)
+
+prev.addEventListener('click', () => {
+    prevSlide()
+    clearTimeout(timerId)
+    }
+)
 
 for (let i = 0; i < dots.length; i++) {
     dots[i].addEventListener('click', () => {
         changeSlide(i)
+        clearTimeout(timerId)
     })
 }
 
